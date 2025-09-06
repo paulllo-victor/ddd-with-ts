@@ -1,51 +1,64 @@
 import Address from "./address";
 
-export default class Customer{
+export default class Customer {
     private _id: string;
     private _name: string
     _address!: Address;
     _active: boolean = true;
+    private _rewardPoints: number = 0;
 
-    constructor(id: string, name: string){
+    constructor(id: string, name: string) {
         this._id = id;
         this._name = name;
         this.validate();
     }
 
-    validate(){
-        if(this._id.length === 0){
+    validate() {
+        if (this._id.length === 0) {
             throw new Error("Id is required");
         }
-        if(this._name.length === 0){
+        if (this._name.length === 0) {
             throw new Error("Name is required");
         }
     }
 
-    get name(): string{
+    get name(): string {
         return this._name;
     }
 
-    changeName(name: string){
+    changeName(name: string) {
         this._name = name;
         this.validate();
     }
 
-    activate(){
-        if(this._address === undefined){
+    activate() {
+        if (this._address === undefined) {
             throw new Error("Address is mandatory to activate a customer");
         }
         this._active = true;
     }
-    
-    deactivate(){
+
+    deactivate() {
         this._active = false;
     }
 
-    isActive(): boolean{
+    isActive(): boolean {
         return this._active;
     }
 
-    set address(address: Address){
+    set address(address: Address) {
         this._address = address;
+    }
+
+    addRewardPoints(points: number) {
+        this._rewardPoints += points;
+    }
+
+    get rewardPoints(): number {
+        return this._rewardPoints;
+    }
+
+    get id(): string {
+        return this._id;
     }
 }

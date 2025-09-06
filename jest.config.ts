@@ -3,13 +3,13 @@
  * https://jestjs.io/docs/configuration
  */
 
-import type {Config} from 'jest';
+import type { Config } from 'jest';
 
 const config: Config = {
   transform: {
     "^.+\\.(t|j)sx?$": "@swc/jest",
   },
-  extensionsToTreatAsEsm: [".ts"],
+  extensionsToTreatAsEsm: [".ts", ".tsx"],
   moduleFileExtensions: ["ts", "js", "json"],
   testEnvironment: "node",
   // All imported modules in your tests should be mocked automatically
