@@ -5,12 +5,12 @@ export default class OrderItem {
     _price: number;
     _quantity: number;
 
-    constructor(id: string, _productId: string, name: string, price: number, quantity: number) {
+    constructor(id: string, productId: string, name: string, price: number, quantity: number) {
         this._id = id;
         this._name = name;
         this._price = price;
         this._quantity = quantity;
-        this._productId = _productId;
+        this._productId = productId;
         this.validate();
     }
 
